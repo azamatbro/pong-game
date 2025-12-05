@@ -26,15 +26,12 @@ void draw() {
         putchar('O');
         continue;
       }
-
-      // Left paddle at x=2
       if (x == 2 &&
           (y == racket_left - 1 || y == racket_left || y == racket_left + 1)) {
         putchar('|');
         continue;
       }
 
-      // Right paddle at x=W-3
       if (x == WIDTH - 3 && (y == racket_right - 1 || y == racket_right || y == racket_right + 1)) {
         putchar('|');
         continue;
@@ -51,7 +48,6 @@ void draw() {
     putchar('\n');
   }
 }
-// change ball positions
 void update_ball() {
   ball_x = ball_x + x_velocity;
   ball_y = ball_y + y_velocity;
@@ -85,14 +81,13 @@ void update_ball() {
       y_velocity = -1;
   }
 }
-// moving left racket
 void move_left_racket(int d) {
   racket_left += d;
   if (racket_left < 2)
     racket_left = 2;
   if (racket_left > HEIGHT - 3)
     racket_left = HEIGHT - 3;
-} // move right racket;
+}
 void move_right_racket(int d) {
   racket_right += d;
   if (racket_right < 2)
